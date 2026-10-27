@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sustainable Farmers Refresher Training Assessment</title>
+<style>
+:root{--navy:#173b4f;--teal:#237a70;--gold:#d8a43b;--bg:#f3f6f8;--ink:#23313a;--muted:#647580;--line:#dce5e9;--white:#fff}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+header{background:linear-gradient(120deg,#173b4f,#237a70);color:#fff;padding:34px clamp(18px,5vw,64px)}
+header .org{font-size:12px;letter-spacing:2px;text-transform:uppercase;opacity:.85;font-weight:bold}
+header h1{font-size:clamp(25px,4vw,38px);line-height:1.15;margin:10px 0}
+header p{max-width:850px;margin:0;color:#e9f3f3}
+.wrap{max-width:1250px;margin:auto;padding:24px clamp(14px,3vw,34px) 50px}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 24px}
+nav button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:10px 14px;color:var(--navy);font-weight:700;cursor:pointer}
+nav button.active,nav button:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+section{display:none}section.active{display:block}
+h2{color:var(--navy);font-size:25px;margin:0 0 5px}
+.sub{color:var(--muted);margin:0 0 22px}
+.dashboard-kpis{margin-top:0}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:18px 0 24px}
+.card,.panel{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:0 3px 12px #173b4f08}
+.kpi{font-size:31px;font-weight:800;color:var(--teal);margin:3px 0}.label{font-size:13px;color:var(--muted)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+h3{font-size:17px;color:var(--navy);margin:0 0 12px}
+ul{padding-left:20px;margin:8px 0}li{margin:7px 0}
+.barrow{margin:13px 0}.barlabel{display:flex;justify-content:space-between;gap:10px;font-size:14px;margin-bottom:5px}
+.track{height:9px;background:#e8eef0;border-radius:20px;overflow:hidden}.fill{height:100%;background:var(--teal);border-radius:20px}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:14px}
+th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line)}
+th{background:#eaf1f3;color:var(--navy);position:sticky;top:0}
+.tablewrap{overflow:auto;max-height:540px;border:1px solid var(--line);border-radius:10px}
+input,select{padding:10px;border:1px solid #cbd8dd;border-radius:7px;background:white;font:inherit}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+.note{border-left:4px solid var(--gold);padding:12px 15px;background:#fff8e7;border-radius:5px;margin:16px 0;color:#5c4a21}
+.small{font-size:12px;color:var(--muted)}
+.chart-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;margin:16px 0}
+.chartbox{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;min-width:0}
+.chartbox h3{margin-bottom:5px}.chart-note{font-size:12px;color:var(--muted);margin:0 0 12px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:8px}
+.key{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px}
+.compare-table td:first-child{font-weight:600;min-width:160px}.compare-track{height:14px;background:#edf1f3;border-radius:4px;overflow:hidden;display:flex;min-width:120px}.compare-track span{display:block;height:100%}
+.region-summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:14px 0}
+.region-tile{border:1px solid var(--line);background:#fff;border-radius:10px;padding:14px}.region-tile strong{display:block;font-size:20px;color:var(--navy)}
+@media(max-width:520px){.chart-grid{grid-template-columns:1fr}.chartbox{padding:13px}}
+.chartbox{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;min-width:0}
+.chartbox h3{margin-bottom:4px}.chart-sub{font-size:12px;color:var(--muted);margin:0 0 12px}
+.chart-svg{display:block;width:100%;height:auto;max-height:340px}.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:10px}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}
+.region-summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:14px 0}.region-chip{background:#f5f8f9;border:1px solid var(--line);padding:12px;border-radius:9px}.region-chip b{display:block;font-size:22px;color:var(--navy)}
+@media print{nav,.filters{display:none}section{display:block!important;page-break-inside:avoid}.wrap{max-width:none}}
+footer{color:var(--muted);font-size:12px;text-align:center;padding:24px}
+@media print{nav,.filters{display:none}section{display:block!important;page-break-inside:avoid}.wrap{max-width:none}}
+</style>
+</head>
+<body>
+<header>
+ <div class="org">SOFDI · Farmer Training Assessment</div>
+ <h1>Sustainable Farmers Refresher Training Assessment</h1>
+ <p>Interactive dashboard covering participation, adoption of agroecological practices, farmer feedback, enumerator observations, and farmer locations.</p>
+</header>
+<div class="wrap">
+<div class="cards dashboard-kpis" aria-label="Dashboard key performance indicators">
+<div class="card"><div class="label">Farmers assessed</div><div class="kpi">42</div><div class="label">Total assessment records</div></div>
+<div class="card"><div class="label">Attended training</div><div class="kpi">37</div><div class="label">88.1% of farmers</div></div>
+<div class="card"><div class="label">Did not attend</div><div class="kpi">5</div><div class="label">11.9% of farmers</div></div>
+<div class="card"><div class="label">Currently composting</div><div class="kpi">27</div><div class="label">73% of attendees</div></div>
+<div class="card"><div class="label">Using raised beds</div><div class="kpi">25</div><div class="label">68% of attendees</div></div>
+<div class="card"><div class="label">ALVs in production</div><div class="kpi">26</div><div class="label">70% of attendees</div></div>
+</div>
+<nav aria-label="Dashboard sections">
+<button class="active" data-target="executive">1. Summary & Overview</button>
+<button data-target="adoption">2. Adoption Practices</button>
+<button data-target="findings">3. Key Findings</button>
+<button data-target="observations">4. Enumerator Observations</button>
+<button data-target="farmers">5. Regions, Groups & Farmers</button>
+</nav>
+
+<section id="executive" class="active">
+<h2>Summary & Assessment Overview</h2><p class="sub">Participation, assessment coverage and the main adoption signals.</p>
+<div class="panel"><h3>Summary</h3>
+<p>The assessment covered 42 farmers, of whom 37 attended the refresher training. Reported adoption was strongest for composting, raised beds, crop rotation/intercropping and African leafy vegetables (ALVs). Adoption of Azolla and vermicomposting remained limited. Farmers highlighted raised beds and composting as useful practices, while requests for materials, group support and demonstration opportunities point to the need for continued follow-up.</p>
+<p>Percentages for practice adoption generally use the 37 training attendees as the denominator. Some questions allow multiple responses, so totals may exceed 100%.</p></div>
+<div class="grid2" style="margin-top:16px">
+<div class="panel"><h3>Attendance overview</h3>
+<div class="barrow"><div class="barlabel"><span>Attended</span><b>37 (88.1%)</b></div><div class="track"><div class="fill" style="width:88.1%"></div></div></div>
+<div class="barrow"><div class="barlabel"><span>Did not attend</span><b>5 (11.9%)</b></div><div class="track"><div class="fill" style="width:11.9%"></div></div></div>
+</div>
+<div class="panel"><h3>Assessment areas</h3><ul><li>Composting and compost management</li><li>Kitchen gardens and ALV production</li><li>Soil and water conservation technologies</li><li>Innovative gardens and pest management</li><li>Organic topdressers, Azolla and vermicomposting</li><li>Practice usefulness, challenges and support needs</li><li>Enumerator observations on progress and barriers</li></ul></div>
+</div>
+<div class="chart-grid">
+ <div class="chartbox"><h3>Training attendance</h3><p class="chart-note">Share of all 42 assessed farmers</p>
+  <svg viewBox="0 0 300 190" role="img" aria-label="Donut chart: 37 attended, 5 did not attend" style="width:100%;max-height:220px">
+   <circle cx="105" cy="92" r="62" fill="none" stroke="#e7edf0" stroke-width="24"/>
+   <circle cx="105" cy="92" r="62" fill="none" stroke="#237a70" stroke-width="24" stroke-dasharray="342.8 389.6" transform="rotate(-90 105 92)"/>
+   <circle cx="105" cy="92" r="62" fill="none" stroke="#d8a43b" stroke-width="24" stroke-dasharray="46.8 389.6" stroke-dashoffset="-342.8" transform="rotate(-90 105 92)"/>
+   <text x="105" y="88" text-anchor="middle" font-size="27" font-weight="700" fill="#173b4f">42</text><text x="105" y="108" text-anchor="middle" font-size="11" fill="#647580">assessed</text>
+   <text x="190" y="72" font-size="12" fill="#23313a">Attended</text><text x="190" y="91" font-size="18" font-weight="700" fill="#237a70">88.1%</text><text x="190" y="123" font-size="12" fill="#23313a">Did not attend</text><text x="190" y="142" font-size="18" font-weight="700" fill="#b98518">11.9%</text>
+  </svg><div class="legend"><span><i class="key" style="background:#237a70"></i>Attended: 37</span><span><i class="key" style="background:#d8a43b"></i>Did not attend: 5</span></div>
+ </div>
+ <div class="chartbox"><h3>Practice adoption comparison</h3><p class="chart-note">Current adoption reported among 37 training attendees</p>
+  <table class="compare-table"><tbody>
+   <tr><td>Composting</td><td><div class="compare-track"><span style="width:73%;background:#237a70"></span></div></td><td>73%</td></tr>
+   <tr><td>ALVs in production</td><td><div class="compare-track"><span style="width:70%;background:#2f8d83"></span></div></td><td>70%</td></tr>
+   <tr><td>Raised beds</td><td><div class="compare-track"><span style="width:68%;background:#4b9d92"></span></div></td><td>68%</td></tr>
+   <tr><td>Kitchen garden</td><td><div class="compare-track"><span style="width:57%;background:#d8a43b"></span></div></td><td>57%</td></tr>
+   <tr><td>Crop rotation/intercropping</td><td><div class="compare-track"><span style="width:51%;background:#c58b27"></span></div></td><td>51%</td></tr>
+  </tbody></table>
+ </div>
+</div>
+</section>
+
+
+<section id="adoption">
+<h2>Adoption Practices</h2><p class="sub">Reported use of agroecological practices among the 37 farmers who attended the refresher training. Use the bars to compare current adoption and areas needing follow-up.</p>
+<div class="grid2" style="margin-bottom:16px">
+<div class="chartbox"><h3>Adoption comparison</h3><p class="chart-sub">Current reported adoption across selected practices (attendees, n=37)</p>
+<svg class="chart-svg" viewBox="0 0 520 300" role="img" aria-label="Horizontal bar chart comparing practice adoption">
+<g font-family="Arial" font-size="12" fill="#647580"><text x="190" y="22">0%</text><text x="270" y="22">25%</text><text x="350" y="22">50%</text><text x="430" y="22">75%</text><text x="485" y="22">100%</text></g>
+<g stroke="#e5ecef" stroke-width="1"><path d="M190 32V278 M270 32V278 M350 32V278 M430 32V278 M510 32V278"/></g>
+<g font-family="Arial" font-size="12" fill="#23313a"><text x="4" y="57">Composting</text><text x="4" y="91">ALVs</text><text x="4" y="125">Raised beds</text><text x="4" y="159">Kitchen garden</text><text x="4" y="193">Crop rotation / intercropping</text><text x="4" y="227">Botanical pesticides</text><text x="4" y="261">Biological control</text></g>
+<g fill="#237a70"><rect x="190" y="42" width="292.0" height="20" rx="4"/><rect x="190" y="76" width="280" height="20" rx="4"/><rect x="190" y="110" width="272" height="20" rx="4"/><rect x="190" y="144" width="228" height="20" rx="4"/><rect x="190" y="178" width="204" height="20" rx="4"/><rect x="190" y="212" width="120" height="20" rx="4"/><rect x="190" y="246" width="108" height="20" rx="4"/></g>
+<g font-family="Arial" font-size="12" font-weight="bold" fill="#173b4f"><text x="487" y="57">73%</text><text x="475" y="91">70%</text><text x="467" y="125">68%</text><text x="423" y="159">57%</text><text x="399" y="193">51%</text><text x="315" y="227">30%</text><text x="303" y="261">27%</text></g></svg>
+<div class="legend"><span><i class="dot" style="background:#237a70"></i>Reported currently using practice</span></div></div>
+<div class="chartbox"><h3>Adoption gap snapshot</h3><p class="chart-sub">Comparison of practices currently used versus not yet started/not reported where the summary allows a direct comparison.</p>
+<svg class="chart-svg" viewBox="0 0 520 300" role="img" aria-label="Stacked bars comparing current adoption and gaps">
+<g font-family="Arial" font-size="12" fill="#647580"><text x="175" y="25">0%</text><text x="255" y="25">25%</text><text x="335" y="25">50%</text><text x="415" y="25">75%</text><text x="488" y="25">100%</text></g><g stroke="#e5ecef"><path d="M175 34V260 M255 34V260 M335 34V260 M415 34V260 M495 34V260"/></g>
+<g font-family="Arial" font-size="12" fill="#23313a"><text x="4" y="72">Azolla</text><text x="4" y="132">Vermicomposting</text><text x="4" y="192">Composting</text><text x="4" y="252">Raised beds</text></g>
+<g><rect x="175" y="48" width="16" height="30" rx="3" fill="#237a70"/><rect x="191" y="48" width="304" height="30" rx="3" fill="#dce5e9"/><rect x="175" y="108" width="0" height="30" rx="3" fill="#237a70"/><rect x="175" y="108" width="320" height="30" rx="3" fill="#dce5e9"/><rect x="175" y="168" width="234" height="30" rx="3" fill="#237a70"/><rect x="409" y="168" width="86" height="30" rx="3" fill="#dce5e9"/><rect x="175" y="228" width="218" height="30" rx="3" fill="#237a70"/><rect x="393" y="228" width="102" height="30" rx="3" fill="#dce5e9"/></g>
+<g font-family="Arial" font-size="11" font-weight="bold" fill="#173b4f"><text x="198" y="67">5% using</text><text x="300" y="127">100% not started</text><text x="250" y="187">73% using</text><text x="245" y="247">68% using</text></g></svg>
+<div class="legend"><span><i class="dot" style="background:#237a70"></i>Currently using</span><span><i class="dot" style="background:#dce5e9"></i>Not currently using / gap</span></div>
+<p class="small">Azolla use is 2 farmers currently using and 35 never started; vermicomposting was never started by all 37. Other practice gaps are calculated from reported counts.</p></div>
+</div>
+<div class="grid2">
+<div class="panel"><h3>Practices currently adopted</h3>
+<div class="barrow"><div class="barlabel"><span>Composting in use</span><b>27 (73%)</b></div><div class="track"><div class="fill" style="width:73%"></div></div></div>
+<div class="barrow"><div class="barlabel"><span>Raised beds</span><b>25 (68%)</b></div><div class="track"><div class="fill" style="width:68%"></div></div></div>
+<div class="barrow"><div class="barlabel"><span>African leafy vegetables (ALVs) in production</span><b>26 (70%)</b></div><div class="track"><div class="fill" style="width:70%"></div></div></div>
+<div class="barrow"><div class="barlabel"><span>Kitchen garden</span><b>21 (57%)</b></div><div class="track"><div class="fill" style="width:57%"></div></div></div>
+<div class="barrow"><div class="barlabel"><span>Crop rotation/intercropping for pest management</span><b>19 (51%)</b></div><div class="track"><div class="fill" style="width:51%"></div></div></div>
+<div class="barrow"><div class="barlabel"><span>Botanical pesticides</span><b>11 (30%)</b></div><div class="track"><div class="fill" style="width:30%"></div></div></div>
+<div class="barrow"><div class="barlabel"><span>Biological pest control</span><b>10 (27%)</b></div><div class="track"><div class="fill" style="width:27%"></div></div></div>
+</div>
+<div class="panel"><h3>Practices needing targeted support</h3>
+<div class="barrow"><div class="barlabel"><span>Azolla never started</span><b>35 (95%)</b></div><div class="track"><div class="fill" style="width:95%"></div></div></div>
+<div class="barrow"><div class="barlabel"><span>Vermicomposting never started</span><b>37 (100%)</b></div><div class="track"><div class="fill" style="width:100%"></div></div></div>
+<div class="barrow"><div class="barlabel"><span>No innovative garden</span><b>27 (73%)</b></div><div class="track"><div class="fill" style="width:73%"></div></div></div>
+<div class="barrow"><div class="barlabel"><span>No listed pest-management practice</span><b>17 (46%)</b></div><div class="track"><div class="fill" style="width:46%"></div></div></div>
+<div class="barrow"><div class="barlabel"><span>Compost moisture monitoring</span><b>7 (19%)</b></div><div class="track"><div class="fill" style="width:19%"></div></div></div>
+</div>
+<div class="panel"><h3>Compost management practices</h3>
+<div class="barrow"><div class="barlabel"><span>Layering brown and green materials</span><b>29 (78%)</b></div><div class="track"><div class="fill" style="width:78%"></div></div></div>
+<div class="barrow"><div class="barlabel"><span>Turning compost regularly</span><b>28 (76%)</b></div><div class="track"><div class="fill" style="width:76%"></div></div></div>
+<div class="barrow"><div class="barlabel"><span>Covering compost heap</span><b>24 (65%)</b></div><div class="track"><div class="fill" style="width:65%"></div></div></div>
+<div class="barrow"><div class="barlabel"><span>Siting compost away from water</span><b>23 (62%)</b></div><div class="track"><div class="fill" style="width:62%"></div></div></div>
+<p class="small">Practice counts and percentages are based on available assessment summaries and may need verification against the original spreadsheet.</p></div>
+<div class="panel"><h3>Adoption priorities</h3><ul><li>Provide hands-on demonstrations for Azolla and vermicomposting, which most attendees had not started.</li><li>Strengthen compost management, especially moisture monitoring.</li><li>Support farmers to sustain raised beds, kitchen gardens and ALV production.</li><li>Promote integrated pest management, including crop rotation/intercropping, botanical pesticides and biological control.</li></ul></div>
+</div>
+<div class="chart-grid">
+ <div class="chartbox"><h3>Adoption versus not yet started</h3><p class="chart-note">A side-by-side comparison of selected practices; categories differ by question and should not be treated as direct complements.</p>
+  <svg viewBox="0 0 620 280" role="img" aria-label="Bar chart comparing adoption and not-yet-started rates" style="width:100%;height:auto">
+   <g font-size="12" fill="#647580"><text x="205" y="22">0%</text><text x="300" y="22">25%</text><text x="395" y="22">50%</text><text x="490" y="22">75%</text><text x="570" y="22">100%</text></g>
+   <g stroke="#e3eaed" stroke-width="1"><line x1="205" y1="30" x2="205" y2="250"/><line x1="300" y1="30" x2="300" y2="250"/><line x1="395" y1="30" x2="395" y2="250"/><line x1="490" y1="30" x2="490" y2="250"/><line x1="585" y1="30" x2="585" y2="250"/></g>
+   <g font-size="13" fill="#23313a"><text x="8" y="57">Composting in use</text><text x="8" y="101">Raised beds</text><text x="8" y="145">ALVs in production</text><text x="8" y="189">Azolla never started</text><text x="8" y="233">Vermicomposting never started</text></g>
+   <g fill="#237a70"><rect x="205" y="40" width="277.4" height="22" rx="3"/><rect x="205" y="84" width="258.4" height="22" rx="3"/><rect x="205" y="128" width="266" height="22" rx="3"/></g>
+   <g fill="#d8a43b"><rect x="205" y="172" width="361" height="22" rx="3"/><rect x="205" y="216" width="380" height="22" rx="3"/></g>
+   <g font-size="12" font-weight="700" fill="#173b4f"><text x="489" y="55">73%</text><text x="470" y="99">68%</text><text x="478" y="143">70%</text><text x="572" y="187">95%</text><text x="568" y="231">100%</text></g>
+  </svg><div class="legend"><span><i class="key" style="background:#237a70"></i>Practice currently adopted</span><span><i class="key" style="background:#d8a43b"></i>Practice not started</span></div>
+ </div>
+ <div class="chartbox"><h3>Compost management steps</h3><p class="chart-note">Percentage of attendees reporting each step</p>
+  <svg viewBox="0 0 580 250" role="img" aria-label="Column chart comparing compost management steps" style="width:100%;height:auto">
+   <g stroke="#e5ecef" stroke-width="1"><line x1="45" y1="35" x2="555" y2="35"/><line x1="45" y1="75" x2="555" y2="75"/><line x1="45" y1="115" x2="555" y2="115"/><line x1="45" y1="155" x2="555" y2="155"/><line x1="45" y1="195" x2="555" y2="195"/></g>
+   <g font-size="11" fill="#647580"><text x="10" y="39">100</text><text x="18" y="79">75</text><text x="18" y="119">50</text><text x="18" y="159">25</text><text x="25" y="199">0</text></g>
+   <g fill="#237a70"><rect x="85" y="70" width="65" height="125" rx="3"/><rect x="205" y="73" width="65" height="122" rx="3"/><rect x="325" y="91" width="65" height="104" rx="3"/><rect x="445" y="96" width="65" height="99" rx="3"/></g>
+   <g font-size="12" font-weight="700" fill="#173b4f" text-anchor="middle"><text x="117" y="61">78%</text><text x="237" y="64">76%</text><text x="357" y="82">65%</text><text x="477" y="87">62%</text></g>
+   <g font-size="11" fill="#23313a" text-anchor="middle"><text x="117" y="213"><tspan x="117">Layering</tspan><tspan x="117" dy="13">materials</tspan></text><text x="237" y="213"><tspan x="237">Turning</tspan><tspan x="237" dy="13">regularly</tspan></text><text x="357" y="213"><tspan x="357">Covering</tspan><tspan x="357" dy="13">heap</tspan></text><text x="477" y="213"><tspan x="477">Away from</tspan><tspan x="477" dy="13">water</tspan></text></g>
+  </svg>
+ </div>
+</div>
+</section>
+
+<section id="findings">
+<h2>Key Findings</h2><p class="sub">Selected results from farmers who attended the refresher training, unless otherwise indicated.</p>
+<div class="grid2">
+<div class="panel"><h3>Practice adoption</h3>
+<div class="barrow"><div class="barlabel"><span>Composting in use</span><b>27 (73%)</b></div><div class="track"><div class="fill" style="width:73%"></div></div></div>
+<div class="barrow"><div class="barlabel"><span>Raised beds</span><b>25 (68%)</b></div><div class="track"><div class="fill" style="width:68%"></div></div></div>
+<div class="barrow"><div class="barlabel"><span>ALVs in production</span><b>26 (70%)</b></div><div class="track"><div class="fill" style="width:70%"></div></div></div>
+<div class="barrow"><div class="barlabel"><span>Kitchen garden</span><b>21 (57%)</b></div><div class="track"><div class="fill" style="width:57%"></div></div></div>
+<div class="barrow"><div class="barlabel"><span>Crop rotation/intercropping for pests</span><b>19 (51%)</b></div><div class="track"><div class="fill" style="width:51%"></div></div></div>
+</div>
+<div class="panel"><h3>Practices requiring more support</h3>
+<div class="barrow"><div class="barlabel"><span>Azolla never started</span><b>35 (95%)</b></div><div class="track"><div class="fill" style="width:95%"></div></div></div>
+<div class="barrow"><div class="barlabel"><span>Vermicomposting never started</span><b>37 (100%)</b></div><div class="track"><div class="fill" style="width:100%"></div></div></div>
+<div class="barrow"><div class="barlabel"><span>No innovative garden</span><b>27 (73%)</b></div><div class="track"><div class="fill" style="width:73%"></div></div></div>
+<div class="barrow"><div class="barlabel"><span>Have not shared practices</span><b>31 of 37 (83.8%)</b></div><div class="track"><div class="fill" style="width:83.8%"></div></div></div>
+</div>
+<div class="panel"><h3>Most useful practices reported</h3><ul><li>Raised beds: 17 mentions (46%)</li><li>Composting: 10 (27%)</li><li>Kitchen garden: 3 (8%)</li><li>Bag garden: 3 (8%)</li><li>Innovative gardens: 2 (5%)</li></ul><p class="small">Farmers could mention more than one practice.</p></div>
+<div class="panel"><h3>Support requested</h3><ul><li>Materials and inputs: 9 mentions (35%)</li><li>Farmer group support: 8 (31%)</li><li>Demonstration farm: 6 (23%)</li><li>Follow-up visits: 3 (12%)</li><li>Other: 1 (4%)</li></ul><p class="small">Percentages are based on 27 support mentions, not all 37 attendees.</p></div>
+<div class="panel"><h3>Other findings</h3><ul><li>ALV sales: 13 farmers reported sales, 13 reported no sales, and 11 responses were N/A.</li><li>Crop variety was reported as the same by 21 farmers (57%); 13 (35%) reported much less.</li><li>Botanical pesticides were reported by 11 farmers (30%); 17 (46%) reported no listed pest-management practice.</li><li>Organic topdressers: 22 (59%) reported none.</li></ul></div>
+<div class="panel"><h3>Interpretation notes</h3><ul><li>N/A indicates the question or practice was not applicable; it should not be treated as zero adoption.</li><li>ALVs and “Alvs” were retained as separate categories in the source categorisation.</li><li>Some totals and denominators in the source summaries require verification before formal publication.</li></ul></div>
+</div>
+</section>
+
+<section id="observations">
+<h2>Enumerator Observations</h2><p class="sub">Qualitative themes recorded during assessment visits.</p>
+<div class="grid2">
+<div class="panel"><h3>Positive progress</h3><ul><li>Visible progress in composting, ALV production and raised-bed establishment was noted.</li><li>Some farmers were diversifying crops and using organic topdressers.</li><li>Raised beds and composting were frequently identified as useful practices.</li></ul></div>
+<div class="panel"><h3>Gaps and barriers</h3><ul><li>Adoption and consistency of practice varied among farmers.</li><li>Some compost heaps had gaps in management, including moisture monitoring and regular turning.</li><li>Limited land, competing tasks and low commitment were reported as barriers in some cases.</li><li>Adoption of Azolla and vermicomposting remained low.</li></ul></div>
+<div class="panel"><h3>Recommended follow-up</h3><ul><li>Prioritise hands-on demonstrations for practices with low adoption.</li><li>Provide practical guidance on compost moisture, turning and readiness.</li><li>Mobilise farmer groups for peer support and shared learning.</li><li>Plan follow-up visits and document changes in adoption over time.</li></ul></div>
+<div class="panel"><h3>Data interpretation</h3><p>Enumerator observations are qualitative themes and should not be interpreted as counts unless the original records have been coded and tallied. The assessment should be used to guide targeted support rather than assume every farmer faces the same barriers.</p></div>
+</div>
+</section>
+
+<section id="farmers">
+<h2>Regions, Groups & Farmers</h2><p class="sub">Explore the farmer roster by region and group. The full assessment roster is needed to connect all 42 farmers to their correct groups and compare adoption across locations.</p>
+<div class="note"><b>Data limitation:</b> The assessment spreadsheet containing all 42 farmer records is not available here. Only five non-attendee records are currently confirmed in the working notes, and their group names are not available. I have not assigned groups or invented regional adoption results. Upload the assessment Excel file (and a farmer roster with group names if separate) to complete the regional and group comparisons.</div>
+<div class="region-summary">
+ <div class="region-tile"><span class="small">Confirmed records available</span><strong>5</strong><span class="small">of 42 assessed farmers</span></div>
+ <div class="region-tile"><span class="small">Known region labels in available records</span><strong>3</strong><span class="small">Vihiga, Khumusalaba, Khwisero</span></div>
+ <div class="region-tile"><span class="small">Group names confirmed</span><strong>0</strong><span class="small">Need source roster</span></div>
+</div>
+<div class="filters">
+<input id="search" type="search" placeholder="Search farmer, region or group…" aria-label="Search farmer list">
+<select id="regionFilter" aria-label="Filter by region"><option value="">All regions</option><option>Vihiga</option><option>Khumusalaba</option><option>Khwisero</option></select>
+<select id="groupFilter" aria-label="Filter by group"><option value="">All groups</option><option value="__unknown">Group not provided</option></select>
+<select id="attendance" aria-label="Filter by attendance"><option value="">All attendance statuses</option><option>Did not attend</option><option>Attended</option></select>
+</div>
+<div class="tablewrap"><table id="farmersTable"><thead><tr><th>Farmer name</th><th>Region</th><th>Group</th><th>Attendance status</th></tr></thead><tbody>
+<tr><td>Debora Helina</td><td>Vihiga</td><td>Not provided</td><td>Did not attend</td></tr>
+<tr><td>Tabitha Ayacko</td><td>Khumusalaba</td><td>Not provided</td><td>Did not attend</td></tr>
+<tr><td>Lucas Mkolwe</td><td>Khumusalaba</td><td>Not provided</td><td>Did not attend</td></tr>
+<tr><td>Charles Omukuba</td><td>Khumusalaba</td><td>Not provided</td><td>Did not attend</td></tr>
+<tr><td>Jenetrix Nafula</td><td>Khwisero</td><td>Not provided</td><td>Did not attend</td></tr>
+</tbody></table></div>
+<p id="count" class="small">Showing 5 of 5 currently available records</p>
+<div class="panel" style="margin-top:16px"><h3>Regional and group comparison to be completed from source data</h3><p>Once the full roster is provided, this dashboard can compare attendance and each adoption practice by region and farmer group, show the number of farmers per group, and filter the farmer table so selecting a region or group displays only the farmers belonging to it.</p></div>
+</section>
+<footer>SOFDI · Sustainable Farmers Refresher Training Assessment · Draft dashboard based on available summary data</footer>
+</div>
+<script>
+document.querySelectorAll('nav button').forEach(btn=>btn.addEventListener('click',()=>{
+ document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b===btn));
+ document.querySelectorAll('section').forEach(s=>s.classList.toggle('active',s.id===btn.dataset.target));
+}));
+function filterFarmers(){
+ const q=document.getElementById('search').value.toLowerCase();
+ const status=document.getElementById('attendance').value;
+ const region=document.getElementById('regionFilter').value;
+ const group=document.getElementById('groupFilter').value;
+ let shown=0, total=document.querySelectorAll('#farmersTable tbody tr').length;
+ document.querySelectorAll('#farmersTable tbody tr').forEach(row=>{
+  const cells=[...row.cells].map(c=>c.innerText.trim());
+  const match=cells.join(' ').toLowerCase().includes(q)
+   &&(status===''||cells[3]===status)
+   &&(region===''||cells[1]===region)
+   &&(group===''||(group==='__unknown'&&cells[2]==='Not provided')||cells[2]===group);
+  row.style.display=match?'':'none';if(match)shown++;
+ });
+ document.getElementById('count').textContent=`Showing ${shown} of ${total} currently available records`;
+}
+document.getElementById('search').addEventListener('input',filterFarmers);
+document.getElementById('attendance').addEventListener('change',filterFarmers);
+document.getElementById('regionFilter').addEventListener('change',filterFarmers);
+document.getElementById('groupFilter').addEventListener('change',filterFarmers);
+</script>
+</body></html>
